@@ -50,7 +50,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ env.TAG_NAME }}
+        tag: ${{ env.TAG_NAME }}
         body: ${{ env.TAG_NAME }}
         allowUpdates: false
         artifacts: "upload/*.mmdb*"
