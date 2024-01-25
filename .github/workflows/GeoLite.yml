@@ -46,13 +46,14 @@ jobs:
         git push -f origin download
 
     - name: Upload to Releases
-      uses: softprops/action-gh-release@v1
+      uses: ncipollo/release-action@v1.13.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ env.TAG_NAME }}
         body: ${{ env.TAG_NAME }}
-        files: upload/*.mmdb*
+        allowUpdates: false
+        artifacts: "upload/*.mmdb*"
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.2.0
